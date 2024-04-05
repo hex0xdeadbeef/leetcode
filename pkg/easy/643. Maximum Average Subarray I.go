@@ -1,6 +1,6 @@
 package easy
 
-// https://leetcode.com/problems/max-number-of-k-sum-pairs/description/?envType=study-plan-v2&envId=leetcode-75
+// https://leetcode.com/problems/maximum-average-subarray-i/?envType=study-plan-v2&envId=leetcode-75
 
 func FindMaxAverage(nums []int, k int) float64 {
 
