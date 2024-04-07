@@ -4,7 +4,7 @@ import "slices"
 
 // https://leetcode.com/problems/determine-if-two-strings-are-close/?envType=study-plan-v2&envId=leetcode-75
 
-func CloseStrings(word1 string, word2 string) bool {
+func closeStrings(word1 string, word2 string) bool {
 
 	if len(word1) != len(word2) {
 		return false

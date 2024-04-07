@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/maximum-average-subarray-i/?envType=study-plan-v2&envId=leetcode-75
 
-func FindMaxAverage(nums []int, k int) float64 {
+func findMaxAverage(nums []int, k int) float64 {
 
 	var (
 		curSum int

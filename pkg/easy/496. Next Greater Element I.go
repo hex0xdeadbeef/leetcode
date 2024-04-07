@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/next-greater-element-i/description/
 
-func NextGreaterElement(nums1 []int, nums2 []int) []int {
+func nextGreaterElement(nums1 []int, nums2 []int) []int {
 
 	var (
 		seen = make(map[int]int, len(nums2))

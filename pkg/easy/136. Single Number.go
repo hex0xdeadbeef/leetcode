@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/single-number/
 
-func SingleNumber(nums []int) int {
+func singleNumber(nums []int) int {
 
 	type empty struct{}
 	seen := make(map[int]int, len(nums)/2)

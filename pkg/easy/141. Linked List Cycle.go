@@ -2,10 +2,7 @@ package easy
 
 // https://leetcode.com/problems/linked-list-cycle/description/
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import . "leetcode/pkg/datastructures/linkedlist"
 
 func hasCycle(head *ListNode) bool {
 

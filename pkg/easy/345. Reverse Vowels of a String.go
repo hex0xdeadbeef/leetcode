@@ -9,7 +9,7 @@ type vowel struct {
 
 type empty struct{}
 
-func ReverseVowels(s string) string {
+func reverseVowels(s string) string {
 	var (
 		strBytes = []byte(s)
 

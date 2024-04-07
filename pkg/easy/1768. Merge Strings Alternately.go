@@ -7,7 +7,7 @@ import (
 
 // https://leetcode.com/problems/merge-strings-alternately/?envType=study-plan-v2&envId=leetcode-75
 
-func MergeAlternately(word1 string, word2 string) string {
+func mergeAlternately(word1 string, word2 string) string {
 
 	const (
 		zeroInd = 0

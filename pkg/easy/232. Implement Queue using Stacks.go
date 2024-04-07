@@ -6,17 +6,17 @@ const (
 	initialSize = 512
 )
 
-type MyQueue struct {
+type myQueue struct {
 	l, r int
 	body []int
 }
 
-func constructor() MyQueue {
-	q := MyQueue{body: make([]int, initialSize), l: -1, r: 0}
+func constructor() myQueue {
+	q := myQueue{body: make([]int, initialSize), l: -1, r: 0}
 	return q
 }
 
-func (this *MyQueue) Push(x int) {
+func (this *myQueue) Push(x int) {
 	if this.Empty() {
 		this.l = 0
 	}
@@ -26,7 +26,7 @@ func (this *MyQueue) Push(x int) {
 
 }
 
-func (this *MyQueue) Pop() int {
+func (this *myQueue) Pop() int {
 	res := this.body[this.l]
 	this.l++
 
@@ -38,10 +38,10 @@ func (this *MyQueue) Pop() int {
 	return res
 }
 
-func (this *MyQueue) Peek() int {
+func (this *myQueue) Peek() int {
 	return this.body[this.l]
 }
 
-func (this *MyQueue) Empty() bool {
+func (this *myQueue) Empty() bool {
 	return this.l < 0
 }

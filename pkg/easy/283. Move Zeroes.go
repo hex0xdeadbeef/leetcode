@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/move-zeroes/?envType=study-plan-v2&envId=leetcode-75
 
-func MoveZeroes(nums []int) {
+func moveZeroes(nums []int) {
 
 	var (
 		result   = nums[:0]

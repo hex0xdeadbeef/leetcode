@@ -4,7 +4,7 @@ package middle
 
 import "fmt"
 
-func RemoveStars(s string) string {
+func removeStars(s string) string {
 
 	const (
 		asterisk rune = '*'

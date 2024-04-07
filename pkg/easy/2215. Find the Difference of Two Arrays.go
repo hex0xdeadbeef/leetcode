@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/find-the-difference-of-two-arrays/?envType=study-plan-v2&envId=leetcode-75
 
-func FindDifference(nums1 []int, nums2 []int) [][]int {
+func findDifference(nums1 []int, nums2 []int) [][]int {
 	var (
 		result     = make([][]int, 2)
 		set1, set2 = make(map[int]empty, len(nums1)), make(map[int]empty, len(nums2))
