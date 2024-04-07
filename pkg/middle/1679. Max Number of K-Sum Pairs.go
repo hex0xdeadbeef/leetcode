@@ -36,7 +36,7 @@ func maxOperations(nums []int, k int) int {
 			default:
 				delete(filteredMap, n1)
 			}
-
+			continue
 		}
 
 		if n1 != n2 {

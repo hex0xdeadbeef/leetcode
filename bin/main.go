@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"leetcode/pkg/easy"
+	"leetcode/pkg/middle"
 )
 
 func main() {
-	fmt.Println(easy.FindMaxAverage([]int{0,1,1,3,3}, 4))
+
+	middle.RemoveStars("erase*****")
 }
