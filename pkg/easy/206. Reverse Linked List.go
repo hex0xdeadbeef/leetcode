@@ -3,12 +3,10 @@ package easy
 // https://leetcode.com/problems/reverse-linked-list/?envType=study-plan-v2&envId=leetcode-75
 
 import (
-	"leetcode/pkg/datastructures/linkedlist"
 	. "leetcode/pkg/datastructures/linkedlist"
 )
 
 func reverseList(head *ListNode) *ListNode {
-	head = linkedlist.NewLinkedList([]int{1, 2, 3, 4, 5})
 
 	var (
 		a, b, c *ListNode
