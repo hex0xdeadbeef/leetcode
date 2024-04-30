@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"math"
+	. "leetcode/pkg/easy"
 )
 
 func main() {
-	fmt.Println(math.Pow(2, 15))
+	fmt.Println(FairCandySwap([]int{1, 1}, []int{2, 2}))
 }
