@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/roman-to-integer/description/
 
-func RomanToInt(s string) int {
+func romanToInt(s string) int {
 	const (
 		indPad = 1
 	)

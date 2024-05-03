@@ -4,7 +4,7 @@ package easy
 
 // type empty struct{}
 
-func FairCandySwap(aliceSizes []int, bobSizes []int) []int {
+func fairCandySwap(aliceSizes []int, bobSizes []int) []int {
 	const (
 		divider = 2
 	)

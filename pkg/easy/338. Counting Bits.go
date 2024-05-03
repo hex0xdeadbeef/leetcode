@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/counting-bits/
 
-func CountBits(n int) []int {
+func countBits(n int) []int {
 
 	const (
 		sizePad = 1

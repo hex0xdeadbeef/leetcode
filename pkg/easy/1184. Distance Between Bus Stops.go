@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/distance-between-bus-stops/description/
 
-func DistanceBetweenBusStops(distance []int, start int, destination int) int {
+func distanceBetweenBusStops(distance []int, start int, destination int) int {
 	const (
 		pad = 1
 	)

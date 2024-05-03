@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/add-digits/
 
-func AddDigits(num int) int {
+func addDigits(num int) int {
 
 	const (
 		divider = 10

@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/sum-of-squares-of-special-elements/submissions/1232118927/
 
-func SumOfSquares(nums []int) int {
+func sumOfSquares(nums []int) int {
 	var (
 		r   = len(nums) / 2
 		sum int

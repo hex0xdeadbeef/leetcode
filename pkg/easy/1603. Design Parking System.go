@@ -15,7 +15,7 @@ type ParkingSystem struct {
 	places map[CarType]int
 }
 
-func Constructor(s, m, b int) ParkingSystem {
+func carConstructor(s, m, b int) ParkingSystem {
 	return ParkingSystem{places: map[CarType]int{small: s, medium: m, big: b}}
 }
 
