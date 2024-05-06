@@ -1,27 +1,54 @@
 package middle
 
-import . "leetcode/pkg/datastructures/linkedlist"
+// https://leetcode.com/problems/remove-nodes-from-linked-list/description/?envType=daily-question&envId=2024-05-06
 
-func RemoveNodes(head *ListNode) *ListNode {
+import (
+	. "leetcode/pkg/datastructures/linkedlist"
+)
 
-	return nil
+func removeNodes(head *ListNode) *ListNode {
+
+	head = reverseLinkedList(head)
+
+	var (
+		base, runner *ListNode = head, head.Next
+	)
+
+outer:
+	for {
+		for runner != nil && runner.Val < base.Val {
+			runner = runner.Next
+		}
+
+		if runner == nil {
+			base.Next = nil
+			break outer
+		}
+
+		base.Next = runner
+		base = runner
+		runner = base.Next
+	}
+
+	head = reverseLinkedList(head)
+
+	return head
 }
 
-/* node1 := &ListNode{Val: 5, Next: nil}
-node2 := &ListNode{Val: 2, Next: nil}
-node3 := &ListNode{Val: 13, Next: nil}
-node4 := &ListNode{Val: 3, Next: nil}
-node5 := &ListNode{Val: 8, Next: nil}
+func reverseLinkedList(head *ListNode) *ListNode {
+	var (
+		a, b, c *ListNode = nil, head, head.Next
+	)
 
-node1.Next = node2
-node2.Next = node3
-node3.Next = node4
-node4.Next = node5
-node5.Next = nil
+	if b == nil {
+		return head
+	}
 
-result := middle.RemoveNodes(node1)
+	for c != nil {
+		b.Next, a, b, c = a, b, c, c.Next
+	}
 
-for result != nil {
-	fmt.Printf("%d ", result.Val)
-	result = result.Next
-} */
+	b.Next = a
+
+	return b
+}
