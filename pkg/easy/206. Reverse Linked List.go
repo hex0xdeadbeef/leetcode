@@ -34,3 +34,21 @@ func reverseList(head *ListNode) *ListNode {
 	return b
 
 }
+
+func reverseListSimple(head *ListNode) *ListNode {
+	var (
+		a, b, c *ListNode = nil, head, head.Next
+	)
+
+	if b == nil {
+		return head
+	}
+
+	for c != nil {
+		b.Next, a, b, c = a, b, c, c.Next
+	}
+
+	b.Next = a
+
+	return b
+}
