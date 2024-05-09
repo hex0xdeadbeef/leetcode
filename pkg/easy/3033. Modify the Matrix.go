@@ -1,6 +1,6 @@
 package easy
 
-func ModifiedMatrix(matrix [][]int) [][]int {
+func modifiedMatrix(matrix [][]int) [][]int {
 	type Corrdinates struct {
 		x, y int
 	}

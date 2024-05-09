@@ -6,7 +6,7 @@ import (
 	"sort"
 )
 
-func NumRescueBoats(people []int, limit int) int {
+func numRescueBoats(people []int, limit int) int {
 
 	const (
 		maxSeatsTakenCount = 2
