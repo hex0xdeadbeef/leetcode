@@ -1,10 +1,12 @@
 package main
 
-// import (
-// 	// . "leetcode/pkg/hard"
-// 	// "leetcode/pkg/easy"
-// 	// "leetcode/pkg/middle"
-// )
+import (
+	// . "leetcode/pkg/hard"
+	"fmt"
+	"leetcode/pkg/easy"
+	// "leetcode/pkg/middle"
+)
 
 func main() {
+	fmt.Println(easy.HalvesAreAlike("book"))
 }

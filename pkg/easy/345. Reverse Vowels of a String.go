@@ -1,5 +1,7 @@
 package easy
 
+
+
 // https://leetcode.com/problems/reverse-vowels-of-a-string/description/?envType=study-plan-v2&envId=leetcode-75
 
 type vowel struct {
@@ -9,7 +11,7 @@ type vowel struct {
 
 type empty struct{}
 
-func reverseVowels(s string) string {
+func ReverseVowels(s string) string {
 	var (
 		strBytes = []byte(s)
 
