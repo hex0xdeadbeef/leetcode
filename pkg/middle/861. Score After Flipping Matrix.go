@@ -4,7 +4,7 @@ package middle
 
 import "math"
 
-func MatrixScore(grid [][]int) int {
+func matrixScore(grid [][]int) int {
 	for i := 0; i < len(grid); i++ {
 		if grid[i][0] == 0 {
 			for j := 0; j < len(grid[0]); j++ {

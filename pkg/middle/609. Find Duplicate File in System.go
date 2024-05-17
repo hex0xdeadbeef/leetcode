@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func FindDuplicate(dirs []string) [][]string {
+func findDuplicate(dirs []string) [][]string {
 	var (
 		seenContents           = map[string][]string{}
 		dirRoot, name, content string

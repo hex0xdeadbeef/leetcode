@@ -6,7 +6,7 @@ import (
 	"sort"
 )
 
-func TriangleNumber(nums []int) int {
+func triangleNumber(nums []int) int {
 	sort.Ints(nums)
 
 	var (

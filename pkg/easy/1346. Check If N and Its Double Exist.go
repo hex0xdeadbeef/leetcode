@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/check-if-n-and-its-double-exist/
 
-func CheckIfExist(arr []int) bool {
+func checkIfExist(arr []int) bool {
 	var (
 		nums = make(map[int]empty, len(arr))
 

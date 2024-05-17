@@ -4,7 +4,7 @@ package easy
 
 import "strings"
 
-func HalvesAreAlike(s string) bool {
+func halvesAreAlike(s string) bool {
 
 	var (
 		vowels      = map[byte]empty{'a': {}, 'e': {}, 'o': empty{}, 'i': empty{}, 'u': empty{}}

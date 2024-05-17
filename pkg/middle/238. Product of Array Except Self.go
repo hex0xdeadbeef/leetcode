@@ -23,3 +23,24 @@ func productExceptSelf(nums []int) []int {
 
 	return prefixes
 }
+
+func productExceptSelfEasy(nums []int) []int {
+	var (
+		res = make([]int, len(nums))
+
+		curProduct int = 1
+	)
+
+	for i, v := range nums {
+		res[i] = curProduct
+		curProduct *= v
+	}
+
+	curProduct = 1
+	for i := len(nums) - 1; i > -1; i-- {
+		res[i] = curProduct * res[i]
+		curProduct *= nums[i]
+	}
+
+	return res
+}

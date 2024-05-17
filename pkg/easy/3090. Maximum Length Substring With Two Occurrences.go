@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/description/
 
-func MaximumLengthSubstring(s string) int {
+func maximumLengthSubstring(s string) int {
 
 	var (
 		window = make(map[byte]int, len(s))

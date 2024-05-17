@@ -6,7 +6,7 @@ import (
 	"math/rand"
 )
 
-func ModifyString(s string) string {
+func modifyString(s string) string {
 	const (
 		sizePad  = 2
 		question = '?'

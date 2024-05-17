@@ -6,7 +6,7 @@ type NumbersPair struct {
 	a, b int
 }
 
-func MaxSum(nums []int) int {
+func maxSum(nums []int) int {
 	var (
 		numsSortedByHighestDigit = make(map[int]NumbersPair, len(nums)/2)
 

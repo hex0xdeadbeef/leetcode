@@ -44,7 +44,7 @@ func (a *DistancesCoords) Push(x interface{}) {
 	*a = append(*a, x.(DistanceCoord))
 }
 
-func MaximumSafenessFactor(grid [][]int) int {
+func maximumSafenessFactor(grid [][]int) int {
 	const (
 		inf = 1e9
 	)

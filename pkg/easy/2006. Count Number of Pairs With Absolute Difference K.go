@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/description/
 
-func CountKDifference(nums []int, k int) int {
+func countKDifference(nums []int, k int) int {
 	var (
 		occurencies = make(map[int]int, len(nums))
 		cnt         int

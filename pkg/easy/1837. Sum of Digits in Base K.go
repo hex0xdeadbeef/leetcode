@@ -4,7 +4,7 @@ package easy
 
 import "strconv"
 
-func SumBase(n int, k int) int {
+func sumBase(n int, k int) int {
 
 	const (
 		zeroByteVal int = 48

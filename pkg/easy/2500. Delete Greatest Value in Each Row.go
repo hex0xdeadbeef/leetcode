@@ -4,7 +4,7 @@ package easy
 
 import "sort"
 
-func DeleteGreatestValue(grid [][]int) int {
+func deleteGreatestValue(grid [][]int) int {
 	var (
 		curMaxOperand int = -1
 

@@ -4,7 +4,7 @@ package easy
 
 import "strconv"
 
-func DivisorSubstrings(num int, k int) int {
+func divisorSubstrings(num int, k int) int {
 	var (
 		strNum = strconv.Itoa(num)
 

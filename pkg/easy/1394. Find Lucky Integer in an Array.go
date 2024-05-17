@@ -2,7 +2,7 @@ package easy
 
 // https://leetcode.com/problems/find-lucky-integer-in-an-array/description/
 
-func FindLucky(arr []int) int {
+func findLucky(arr []int) int {
 	var (
 		frequencies map[int]int = make(map[int]int, len(arr))
 	)
