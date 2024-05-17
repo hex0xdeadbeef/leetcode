@@ -14,7 +14,7 @@ func longestConsecutive(nums []int) int {
 		occurencies[v] = empty{}
 	}
 
-	if len(occurencies) == 0 && len(occurencies) == 1 {
+	if len(occurencies) == 0 || len(occurencies) == 1 {
 		return len(occurencies)
 	}
 
