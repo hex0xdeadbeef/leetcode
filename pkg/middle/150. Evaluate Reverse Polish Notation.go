@@ -4,7 +4,7 @@ package middle
 
 import "strconv"
 
-func EvalRPN(tokens []string) int {
+func evalRPN(tokens []string) int {
 	const (
 		plus, minus, multiply, divide = "+", "-", "*", "/"
 	)
