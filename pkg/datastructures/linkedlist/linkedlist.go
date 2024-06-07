@@ -36,34 +36,10 @@ func (l *ListNode) String() string {
 	return result
 }
 
-/* node1 := &ListNode{Val: 1, Next: nil}
-node2 := &ListNode{Val: 1, Next: nil}
-node3 := &ListNode{Val: 1, Next: nil}
-node4 := &ListNode{Val: 1, Next: nil}
-node5 := &ListNode{Val: 1, Next: nil}
-node6 := &ListNode{Val: 1, Next: nil}
-node7 := &ListNode{Val: 1, Next: nil}
-node8 := &ListNode{Val: 1, Next: nil}
+func NewList() *ListNode {
+	n1, n2, n3, n4, n5 := &ListNode{Val: 1}, &ListNode{Val: 2}, &ListNode{Val: 3}, &ListNode{Val: 4}, &ListNode{Val: 5}
 
-node1.Next,
-	node2.Next,
-	node3.Next,
-	node4.Next,
-	node5.Next,
-	node6.Next,
-	node7.Next =
+	n1.Next, n2.Next, n3.Next, n4.Next = n2, n3, n4, n5
 
-	node2,
-	node3,
-	node4,
-	node5,
-	node6,
-	node7,
-	node8
-
-res := Func(node1, 6)
-
-for res != nil {
-	fmt.Printf("%d ", res.Val)
-	res = res.Next
-} */
+	return n1
+}
