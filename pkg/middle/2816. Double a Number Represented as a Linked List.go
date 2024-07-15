@@ -14,7 +14,7 @@ func doubleIt(head *ListNode) *ListNode {
 	var (
 		left int
 
-		rightHead *ListNode = revereLinkedList(head)
+		rightHead *ListNode = reverseLinkedList(head)
 
 		cur *ListNode = rightHead
 
@@ -34,7 +34,7 @@ func doubleIt(head *ListNode) *ListNode {
 		cur = cur.Next
 	}
 
-	return revereLinkedList(rightHead)
+	return reverseLinkedList(rightHead)
 
 }
 
@@ -46,7 +46,7 @@ func getDoubledNodeValue(node *ListNode, left int) int {
 	return node.Val*doubler + left
 }
 
-func revereLinkedList(head *ListNode) *ListNode {
+func reverseLinkedList(head *ListNode) *ListNode {
 	var (
 		a, b, c *ListNode = nil, head, head.Next
 	)
