@@ -4,11 +4,9 @@ package easy
 
 import . "leetcode/pkg/datastructures/linkedlist"
 
-func hasCycle(head *ListNode) bool {
-
+func hasCycleA(head *ListNode) bool {
 	const (
-		padding = 1
-		mark    = 10e5 + padding
+		mark = 1e6
 	)
 
 	for head != nil {
@@ -23,4 +21,26 @@ func hasCycle(head *ListNode) bool {
 	}
 
 	return false
+}
+
+func hasCycleB(head *ListNode) bool {
+	var (
+		slow = head
+		fast = head
+	)
+
+	for slow != nil && fast != nil {
+		slow = slow.Next
+
+		if fast.Next != nil {
+			fast = fast.Next.Next
+		}
+
+		if slow == fast && (slow.Next != nil && fast.Next != nil) {
+			return true
+		}
+	}
+
+	return false
+
 }

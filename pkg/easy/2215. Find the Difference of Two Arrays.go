@@ -19,7 +19,7 @@ func findDifference(nums1 []int, nums2 []int) [][]int {
 	result[0] = make([]int, 0, len(set1))
 	result[0] = make([]int, 0, len(set2))
 
-	for k, _ := range set1 {
+	for k := range set1 {
 
 		if _, ok := set2[k]; !ok {
 			result[0] = append(result[0], k)

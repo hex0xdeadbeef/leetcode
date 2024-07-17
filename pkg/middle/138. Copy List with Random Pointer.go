@@ -2,8 +2,6 @@ package middle
 
 // https://leetcode.com/problems/copy-list-with-random-pointer/description/
 
-import "fmt"
-
 type Node struct {
 	Val    int
 	Next   *Node
@@ -68,12 +66,4 @@ func getOldToNewMap(old, new *Node) map[*Node]*Node {
 	}
 
 	return m
-}
-
-func printList(root *Node) {
-	for root != nil {
-		fmt.Print(root.Val, " ")
-		root = root.Next
-	}
-	fmt.Println()
 }
