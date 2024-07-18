@@ -8,6 +8,10 @@ type ListNode struct {
 }
 
 func NewLinkedList(nums []int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
+
 	head := &ListNode{Next: nil, Val: nums[0]}
 
 	var prev *ListNode = head
@@ -43,3 +47,17 @@ func NewList() *ListNode {
 
 	return n1
 }
+
+// func DelinkList(list *ListNode) []*ListNode {
+// 	var (
+// 		nodes = make([]*ListNode, 0, 1<<8)
+// 	)
+
+// 	for list != nil {
+// 		nodes = append(nodes, list)
+
+// 		list, list.Next = list.Next, nil
+// 	}
+
+// 	return nodes
+// }
