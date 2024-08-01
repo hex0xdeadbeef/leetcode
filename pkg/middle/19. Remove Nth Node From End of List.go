@@ -6,7 +6,7 @@ import (
 	. "leetcode/pkg/datastructures/linkedlist"
 )
 
-func RemoveNthFromEnd(head *ListNode, n int) *ListNode {
+func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	head = reverseLinkedList(head)
 
 	var (

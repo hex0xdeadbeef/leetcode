@@ -1,6 +1,6 @@
 package middle
 
-func CharacterReplacement(s string, k int) int {
+func characterReplacement(s string, k int) int {
 	var (
 		usedLts = getUsedLetters(s)
 
