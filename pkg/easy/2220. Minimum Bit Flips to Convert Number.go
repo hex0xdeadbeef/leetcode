@@ -6,20 +6,21 @@ func minBitFlips(start int, goal int) int {
 	var (
 		cnt int
 
-		target   int
-		addition = max(start, goal)
+		toBeAddedToMaxNum   int
+		maxNum = max(start, goal)
 
 		bitShift = 0
 	)
 
-	for target != addition {
+	for toBeAddedToMaxNum != maxNum {
 		if (start>>bitShift)&1 != (goal>>bitShift)&1 {
 			cnt++
 		}
 
-		target += addition & (1 << bitShift)
+		toBeAddedToMaxNum += maxNum & (1 << bitShift)
 		bitShift++
 	}
 
 	return cnt
 }
+

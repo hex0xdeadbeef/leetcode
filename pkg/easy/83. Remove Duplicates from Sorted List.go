@@ -4,7 +4,7 @@ package easy
 
 import . "leetcode/pkg/datastructures/linkedlist"
 
-func DeleteDuplicates(head *ListNode) *ListNode {
+func deleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
