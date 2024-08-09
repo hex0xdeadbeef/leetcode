@@ -7,7 +7,7 @@ type KnightPosition struct {
 	stepNumber int
 }
 
-type KnightShift struct {
+type Point2D struct {
 	x, y int
 }
 
@@ -18,7 +18,7 @@ func checkValidGrid(grid [][]int) bool {
 	)
 
 	var (
-		shifts = [8]KnightShift{
+		shifts = [8]Point2D{
 			{x: -1, y: 2},
 			{x: -2, y: 1},
 			{x: 1, y: 2},

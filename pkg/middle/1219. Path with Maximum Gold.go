@@ -49,7 +49,7 @@ func gatherGold(start CoordinatesPair, grid [][]int, seen map[CoordinatesPair]bo
 			continue
 		}
 
-		if status, _ := seen[newCoordinate]; status {
+		if status := seen[newCoordinate]; status {
 			continue
 		}
 

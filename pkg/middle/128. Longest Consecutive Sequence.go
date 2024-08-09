@@ -42,7 +42,7 @@ func longestConsecutive(nums []int) int {
 				maxCnt = curCnt
 			}
 
-			for k, _ := range occurencies {
+			for k := range occurencies {
 				tail, head, curCnt = k, k, 1
 				delete(occurencies, k)
 				break

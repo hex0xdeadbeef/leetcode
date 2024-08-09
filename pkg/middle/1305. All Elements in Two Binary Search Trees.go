@@ -33,10 +33,10 @@ func getAllElements(root1 *TreeNode, root2 *TreeNode) []int {
 		return s
 	}
 
-	return mergeSlices(traverseAndAppend(root1, s1), traverseAndAppend(root2, s2))
+	return mergeSortedSlices(traverseAndAppend(root1, s1), traverseAndAppend(root2, s2))
 }
 
-func mergeSlices(s1, s2 []int) []int {
+func mergeSortedSlices(s1, s2 []int) []int {
 	var (
 		res = make([]int, 0, len(s1)+len(s2))
 
