@@ -34,3 +34,31 @@ func middleNode(head *ListNode) *ListNode {
 	}
 	return firstMiddle.Next
 }
+
+func middleNodeRepeat(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	if head.Next == nil {
+		return head
+	}
+
+	emptyNode := &ListNode{
+		Next: head,
+	}
+
+	slow, fast := emptyNode, emptyNode
+
+	for {
+		if fast == nil {
+			return slow
+		}
+
+		if fast.Next == nil {
+			return slow.Next
+		}
+
+		slow, fast = slow.Next, fast.Next.Next
+	}
+}

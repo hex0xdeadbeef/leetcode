@@ -102,3 +102,29 @@ func removeElementsCheatedB(head *ListNode, val int) *ListNode {
 
 	return res.Next
 }
+
+func removeElementsRepeat(head *ListNode, val int) *ListNode {
+	emptyRoot := &ListNode{
+		Val: -1,
+	}
+	root := emptyRoot
+
+	for {
+		for head != nil && head.Val == val {
+			head = head.Next
+		}
+
+		root.Next = head
+		root = root.Next
+
+		if head == nil {
+			break
+		}
+
+		head = head.Next
+	}
+
+	return emptyRoot.Next
+}
+
+

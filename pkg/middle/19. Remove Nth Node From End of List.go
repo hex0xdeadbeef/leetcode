@@ -30,3 +30,20 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 
 	return reverseLinkedList(head)
 }
+
+func removeNthFromEndRepeat(head *ListNode, n int) *ListNode {
+	head = reverseLinkedList(head)
+
+	emptyNode := &ListNode{
+		Next: head,
+	}
+	prev, cur := emptyNode, emptyNode
+
+	for range n {
+		prev, cur = cur, cur.Next
+	}
+
+	prev.Next = cur.Next
+
+	return reverseLinkedList(emptyNode.Next)
+}

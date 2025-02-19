@@ -47,6 +47,10 @@ func getDoubledNodeValue(node *ListNode, left int) int {
 }
 
 func reverseLinkedList(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+
 	var (
 		a, b, c *ListNode = nil, head, head.Next
 	)

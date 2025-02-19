@@ -37,3 +37,25 @@ func deleteDuplicates(head *ListNode) *ListNode {
 
 	}
 }
+
+func deleteDuplicatesRepeat(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	fixed, cur := head, head
+
+	for cur != nil {
+		for cur != nil && cur.Val == fixed.Val {
+			cur = cur.Next
+		}
+
+		if cur != nil {
+			fixed.Next, fixed, cur = cur, cur, cur.Next
+		}
+	}
+
+	fixed.Next = nil
+
+	return head
+}

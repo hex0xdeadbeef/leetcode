@@ -14,7 +14,7 @@ func NewLinkedList(nums []int) *ListNode {
 
 	head := &ListNode{Next: nil, Val: nums[0]}
 
-	var prev *ListNode = head
+	prev := head
 
 	for i := 1; i < len(nums); i++ {
 		node := &ListNode{Next: nil, Val: nums[i]}
@@ -48,16 +48,54 @@ func NewList() *ListNode {
 	return n1
 }
 
-// func DelinkList(list *ListNode) []*ListNode {
-// 	var (
-// 		nodes = make([]*ListNode, 0, 1<<8)
-// 	)
+func SplitLinkedList(head *ListNode) (left, middle, right *ListNode) {
+	if head == nil {
+		return nil, nil, nil
+	}
 
-// 	for list != nil {
-// 		nodes = append(nodes, list)
+	emptyRoot := &ListNode{
+		Next: head,
+	}
 
-// 		list, list.Next = list.Next, nil
-// 	}
+	slow, fast := emptyRoot, emptyRoot
+	var prevSlow *ListNode
 
-// 	return nodes
-// }
+	for {
+		prevSlow, slow = slow, slow.Next
+		if fast != nil && fast.Next != nil {
+			fast = fast.Next.Next
+		}
+
+		if fast == nil {
+			right, middle, slow.Next, left, prevSlow.Next = slow.Next, slow, nil, emptyRoot.Next, nil
+			return
+		}
+
+		if fast.Next == nil {
+			right, left, slow.Next = slow.Next, emptyRoot.Next, nil
+			return
+		}
+	}
+}
+
+func ReverseLinkedList(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	var (
+		a, b, c *ListNode = nil, head, head.Next
+	)
+
+	if b == nil {
+		return head
+	}
+
+	for c != nil {
+		b.Next, a, b, c = a, b, c, c.Next
+	}
+
+	b.Next = a
+
+	return b
+}

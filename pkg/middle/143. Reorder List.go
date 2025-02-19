@@ -2,7 +2,9 @@ package middle
 
 // https://leetcode.com/problems/reorder-list/description/
 
-import . "leetcode/pkg/datastructures/linkedlist"
+import (
+	. "leetcode/pkg/datastructures/linkedlist"
+)
 
 func reorderList(head *ListNode) {
 	var (
@@ -39,4 +41,28 @@ func getCopiedList(root *ListNode) []*ListNode {
 	}
 
 	return list
+}
+
+func reorderListRepeat(head *ListNode) {
+	if head == nil || head.Next == nil {
+		return
+	}
+
+	l, m, r := SplitLinkedList(head)
+	r = ReverseLinkedList(r)
+
+	empty := &ListNode{}
+	cur := empty
+
+	for l != nil {
+		cur.Next, l = l, l.Next
+		cur = cur.Next
+
+		cur.Next, r = r, r.Next
+		if cur.Next != nil {
+			cur = cur.Next
+		}
+	}
+
+	cur.Next = m
 }

@@ -44,3 +44,49 @@ func hasCycleB(head *ListNode) bool {
 	return false
 
 }
+
+func hasCycleMapRepeat(head *ListNode) bool {
+	var m = make(map[*ListNode]struct{}, 1<<8)
+
+	if head == nil {
+		return false
+	}
+
+	for {
+		_, ok := m[head]
+		if ok {
+			return true
+		}
+
+		m[head] = struct{}{}
+
+		head = head.Next
+		if head == nil {
+			return false
+		}
+	}
+}
+
+func hasCycleFastSlowRepeat(head *ListNode) bool {
+	if head == nil {
+		return false
+	}
+
+	slow, fast := head, head
+
+	for {
+		if fast == nil || fast.Next == nil || slow == nil {
+			return false
+		}
+
+		slow = slow.Next
+		if fast.Next != nil {
+			fast = fast.Next.Next
+		}
+
+		if fast == slow {
+			return true
+		}
+	}
+
+}

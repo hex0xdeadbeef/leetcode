@@ -76,3 +76,35 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	return head
 }
+
+func addTwoNumbersRepeat(l1 *ListNode, l2 *ListNode) *ListNode {
+	var (
+		curSum, remainder int
+	)
+	res := l1
+
+	for {
+		curSum = l1.Val + l2.Val + remainder
+		l1.Val, remainder = curSum%10, curSum/10
+
+		if l1.Next == nil && l2.Next == nil {
+			break
+		}
+
+		if l1.Next == nil && l2.Next != nil {
+			l1.Next = &ListNode{}
+		}
+
+		if l2.Next == nil && l1.Next != nil {
+			l2.Next = &ListNode{}
+		}
+
+		l1, l2 = l1.Next, l2.Next
+	}
+
+	if remainder != 0 {
+		l1.Next = &ListNode{Val: remainder}
+	}
+
+	return res
+}
