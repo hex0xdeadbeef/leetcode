@@ -4,14 +4,10 @@ package hard
 
 import (
 	. "leetcode/pkg/datastructures/linkedlist"
-	"sort"
+	"slices"
 )
 
 type Nodes []*ListNode
-
-func (n *Nodes) Len() int           { return len(*n) }
-func (n *Nodes) Swap(i, j int)      { (*n)[i], (*n)[j] = (*n)[j], (*n)[i] }
-func (n *Nodes) Less(i, j int) bool { return (*n)[i].Val < (*n)[j].Val }
 
 func MergeKLists(lists []*ListNode) *ListNode {
 	if len(lists) == 0 {
@@ -28,7 +24,9 @@ func MergeKLists(lists []*ListNode) *ListNode {
 		}
 	}
 	nodes := Nodes(nodesToSort)
-	sort.Sort(&nodes)
+	slices.SortFunc(nodesToSort, func(a, b *ListNode) int {
+		return a.Val - b.Val
+	})
 
 	for i, n := range nodes {
 		if i+1 < len(nodes) {
@@ -59,4 +57,21 @@ func prepareNodes(list *ListNode) []*ListNode {
 	}
 
 	return nodes
+}
+
+func mergeKLists(lists []*ListNode) *ListNode {
+	empty := &ListNode{}
+	cur := empty
+
+	for _, v := range lists {
+		if v == nil {
+			continue
+		}
+
+		cur.Next = v
+		for ; cur.Next != nil; cur = cur.Next {
+		}
+	}
+
+	return SortListMerge(empty.Next)
 }

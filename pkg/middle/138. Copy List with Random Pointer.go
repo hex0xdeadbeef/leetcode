@@ -2,13 +2,13 @@ package middle
 
 // https://leetcode.com/problems/copy-list-with-random-pointer/description/
 
-type Node struct {
+type NodeWithRandom struct {
 	Val    int
-	Next   *Node
-	Random *Node
+	Next   *NodeWithRandom
+	Random *NodeWithRandom
 }
 
-func copyRandomList(head *Node) *Node {
+func copyRandomList(head *NodeWithRandom) *NodeWithRandom {
 	var (
 		newList  = copyList(head)
 		oldToNew = getOldToNewMap(head, newList)
@@ -26,7 +26,7 @@ func copyRandomList(head *Node) *Node {
 	return newList
 }
 
-func copyList(root *Node) *Node {
+func copyList(root *NodeWithRandom) *NodeWithRandom {
 
 	if root == nil {
 		return nil
@@ -35,13 +35,13 @@ func copyList(root *Node) *Node {
 	var (
 		oldCur = root
 
-		newHead = &Node{Val: -1, Next: &Node{Val: -1}}
+		newHead = &NodeWithRandom{Val: -1, Next: &NodeWithRandom{Val: -1}}
 		newCur  = newHead.Next
 	)
 
 	for oldCur != nil {
 
-		newCur.Val, newCur.Next = oldCur.Val, &Node{Val: -1}
+		newCur.Val, newCur.Next = oldCur.Val, &NodeWithRandom{Val: -1}
 		if oldCur.Next == nil {
 			newCur.Next = nil
 			break
@@ -54,9 +54,9 @@ func copyList(root *Node) *Node {
 	return newHead.Next
 }
 
-func getOldToNewMap(old, new *Node) map[*Node]*Node {
+func getOldToNewMap(old, new *NodeWithRandom) map[*NodeWithRandom]*NodeWithRandom {
 	var (
-		m = make(map[*Node]*Node, 1<<9)
+		m = make(map[*NodeWithRandom]*NodeWithRandom, 1<<9)
 	)
 
 	for old != nil {
@@ -66,4 +66,32 @@ func getOldToNewMap(old, new *Node) map[*Node]*Node {
 	}
 
 	return m
+}
+
+func сopyRandomListRepeat(head *NodeWithRandom) *NodeWithRandom {
+	var cur1 *NodeWithRandom
+	cur2 := &NodeWithRandom{}
+	newHead := cur2
+
+	cur1 = head
+	for ; cur1 != nil; cur1 = cur1.Next {
+		copiedNode := &NodeWithRandom{Val: cur1.Val}
+		cur2.Next, cur2 = copiedNode, copiedNode
+	}
+	newHead = newHead.Next
+
+	cur1, cur2 = head, newHead
+	m := make(map[*NodeWithRandom]*NodeWithRandom, 1<<8)
+	for ; cur1 != nil; cur1, cur2 = cur1.Next, cur2.Next {
+		m[cur1] = cur2
+	}
+
+	for k, v := range m {
+		if k.Random == nil {
+			continue
+		}
+		v.Random = m[k.Random]
+	}
+
+	return newHead
 }

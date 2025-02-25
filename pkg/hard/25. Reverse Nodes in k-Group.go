@@ -51,3 +51,38 @@ func DelinkList(list *ListNode) []*ListNode {
 
 	return nodes
 }
+
+func ReverseKGroupRepeat(head *ListNode, k int) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	beforeL := &ListNode{Next: head}
+	root := beforeL
+
+	var hopsCount int
+	head = beforeL
+	for {
+		for hopsCount = 0; hopsCount < k && head.Next != nil; head, hopsCount = head.Next, hopsCount+1 {
+		}
+
+		if hopsCount < k {
+			break
+		}
+
+		l, rAfter := beforeL.Next, head.Next
+		head.Next, head, beforeL.Next = nil, head.Next, nil
+
+		l = ReverseLinkedList(l)
+		beforeL.Next = l
+
+		for ; l.Next != nil; l = l.Next {
+		}
+		l.Next = rAfter
+
+		beforeL, head = l, l
+	}
+
+	return root.Next
+
+}

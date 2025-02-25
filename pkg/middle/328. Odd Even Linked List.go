@@ -59,3 +59,35 @@ func oddEvenList(head *ListNode) *ListNode {
 
 	return head
 }
+
+func oddEvenListRepeat(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	var oddRoot, evenRoot, cur *ListNode
+	odd, even := &ListNode{}, &ListNode{}
+
+	for i := 1; head != nil; i++ {
+		cur = head
+
+		switch i % 2 {
+		case 1:
+			if i == 1 {
+				oddRoot = cur
+			}
+
+			odd.Next, odd = cur, cur
+		default:
+			if i == 2 {
+				evenRoot = cur
+			}
+
+			even.Next, even = cur, cur
+		}
+
+		head.Next, head = nil, head.Next
+	}
+	odd.Next = evenRoot
+
+	return oddRoot
+}

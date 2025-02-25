@@ -48,3 +48,25 @@ func removeInvalidLetters(l, r int, str string, subLetters map[byte]struct{}) {
 		delete(subLetters, str[l])
 	}
 }
+
+func lengthOfLongestSubstringRepeat(s string) int {
+	if len(s) <= 1 {
+		return len(s)
+	}
+
+	var l, maxLen int
+	m := make(map[byte]int, len(s))
+
+	for r := 0; r < len(s); r++ {
+		if prevIdx, ok := m[s[r]]; ok && prevIdx >= l {
+			l = prevIdx + 1
+		}
+
+		m[s[r]] = r
+		if curLen := r - l + 1; curLen > maxLen {
+			maxLen = curLen
+		}
+	}
+
+	return maxLen
+}
