@@ -1,6 +1,6 @@
 package middle
 
-import . "leetcode/pkg/datastructures/double-linked-list"
+import . "leetcode/pkg/datastructures/doubly-linked-list"
 
 func longestOnes(nums []int, k int) int {
 	var l, r, maxLen int
