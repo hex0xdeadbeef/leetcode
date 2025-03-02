@@ -27,7 +27,6 @@ out:
 	for {
 
 		for k, v1 := range subtractions {
-
 			if v2, _ := symbolsCounts[k]; v2-v1 < 0 {
 				break out
 			}

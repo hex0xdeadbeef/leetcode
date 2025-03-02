@@ -1,5 +1,7 @@
 package middle
 
+import . "leetcode/pkg/datastructures/doublylinkedlist"
+
 func characterReplacement(s string, k int) int {
 	var (
 		usedLts = getUsedLetters(s)
@@ -60,7 +62,7 @@ func findMaxLetterSubsequenceLen(str string) int {
 	var (
 		maxLen = 1
 
-		l, r int = 0, 1
+		l, r = 0, 1
 	)
 
 	for r < len(str) {
@@ -96,10 +98,60 @@ func getUsedLetters(s string) map[byte]struct{} {
 	return m
 }
 
-// func max(a, b int) int {
-// 	if a > b {
-// 		return a
-// 	}
+func characterReplacementRepeat(s string, k int) int {
+	var (
+		alphabet       [26]int
+		maxReplacement int
+	)
 
-// 	return b
-// }
+	for i := 0; i < len(s); i++ {
+		alphabet[s[i]-'A']++
+	}
+
+	for i, v := range alphabet {
+		if v == 0 {
+			continue
+		}
+
+		maxReplacement = max(maxReplacement, countWithLetter(s, 'A'+byte(i), k))
+	}
+
+	return maxReplacement
+}
+
+func countWithLetter(s string, letter byte, k int) int {
+	var l, r, maxRange int
+	list := New()
+
+	for ; r < len(s) && (s[r] == letter || k > 0); r++ {
+		if s[r] != letter && k > 0 {
+			list.InsertTail(r)
+			k--
+		}
+	}
+	maxRange = r - l
+
+	for ; r < len(s); r++ {
+		if s[r] == letter {
+			continue
+		}
+
+		if curRange := r - l - 1; curRange > maxRange {
+			maxRange = curRange
+		}
+
+		if !list.IsEmpty() {
+			l = list.PopHead().Val
+			list.InsertTail(r)
+			continue
+		}
+
+		l = r
+	}
+
+	if curRange := r - l - 1; curRange > maxRange {
+		maxRange = curRange
+	}
+
+	return maxRange
+}

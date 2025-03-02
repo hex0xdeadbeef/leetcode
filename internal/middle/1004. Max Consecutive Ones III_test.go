@@ -48,6 +48,11 @@ func Test_longestOnes(t *testing.T) {
 			k:        1,
 			expected: 4,
 		},
+		{
+			nums:     []int{0, 0, 1, 1, 0, 0, 1},
+			k:        2,
+			expected: 5,
+		},
 	}
 
 	for _, tc := range tt {

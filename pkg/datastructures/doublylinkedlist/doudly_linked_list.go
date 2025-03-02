@@ -1,8 +1,8 @@
-package doublelinkedlist
+package doublylinkedlist
 
 const (
-	empty    = 0
-	onlyHead = 1
+	empty = iota
+	onlyHead
 )
 
 type Node struct {
@@ -19,6 +19,11 @@ type List struct {
 
 func New() *List {
 	return &List{}
+}
+
+func (l *List) Clear() {
+	l.tail, l.head = nil, nil
+	l.count = 0
 }
 
 func (l *List) Head() *Node {
