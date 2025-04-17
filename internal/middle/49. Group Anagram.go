@@ -45,3 +45,24 @@ func groupAnagrams(strs []string) [][]string {
 
 	return result
 }
+
+func groupAnagramsNew(strs []string) [][]string {
+	m := make(map[[26]int][]string)
+
+	for i := range strs {
+		arr := [26]int{}
+
+		for _, b := range []byte(strs[i]) {
+			arr[b-'a']++
+		}
+
+		m[arr] = append(m[arr], strs[i])
+	}
+
+	res := [][]string{}
+	for _, s := range m {
+		res = append(res, s)
+	}
+
+	return res
+}

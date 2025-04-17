@@ -2,40 +2,32 @@ package easy
 
 // https://leetcode.com/problems/leaf-similar-trees/submissions/1226550945/?envType=study-plan-v2&envId=leetcode-75
 
-import . "leetcode/pkg/datastructures/treenode"
+import (
+	. "leetcode/pkg/datastructures/treenode"
+	"slices"
+)
 
 func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
-	var (
-		traverse func(root *TreeNode, leaves *[]int)
+	var s1, s2 []int
 
-		roots1, roots2 = make([]int, 0, 128), make([]int, 0, 128)
-	)
+	var traverse func(*TreeNode, *[]int)
 
-	traverse = func(root *TreeNode, leaves *[]int) {
+	traverse = func(root *TreeNode, s *[]int) {
 		if root == nil {
 			return
 		}
 
 		if root.Left == nil && root.Right == nil {
-			*leaves = append(*leaves, root.Val)
+			*s = append(*s, root.Val)
+			return
 		}
 
-		traverse(root.Left, leaves)
-		traverse(root.Right, leaves)
+		traverse(root.Left, s)
+		traverse(root.Right, s)
 	}
 
-	traverse(root1, &roots1)
-	traverse(root2, &roots2)
+	traverse(root1, &s1)
+	traverse(root2, &s2)
 
-	if len(roots1) != len(roots2) {
-		return false
-	}
-
-	for i, n := range roots1 {
-		if n != roots2[i] {
-			return false
-		}
-	}
-
-	return true
+	return slices.Equal(s1, s2)
 }

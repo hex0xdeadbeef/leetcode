@@ -51,3 +51,30 @@ func Test_lengthOfLongestSubstringRepeat(t *testing.T) {
 		}
 	}
 }
+
+func TestLengthOfLongestSubstring(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected int
+	}{
+		// {"", 0},
+		// {"a", 1},
+		// {"aa", 1},
+		// {"ab", 2},
+		// {"abcabcbb", 3},
+		// {"bbbbb", 1},
+		// {"pwwkew", 3},
+		// {"dvdf", 3},
+		// {"anviaj", 5},
+		// {"tmmzuxt", 5},
+		{"abba", 2},
+		// {"abcdef", 6},
+	}
+
+	for _, test := range tests {
+		result := lengthOfLongestSubstringNew(test.input)
+		if result != test.expected {
+			t.Errorf("For input %q: expected %d, got %d", test.input, test.expected, result)
+		}
+	}
+}

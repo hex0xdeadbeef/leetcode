@@ -70,3 +70,41 @@ func lengthOfLongestSubstringRepeat(s string) int {
 
 	return maxLen
 }
+
+func lengthOfLongestSubstringNew(s string) int {
+	if len(s) == 1 {
+		return len(s)
+	}
+
+	m := make(map[byte]int)
+
+	var (
+		maxLen int
+
+		l, r int
+	)
+
+	for ; r < len(s); r++ {
+		idx, ok := m[s[r]]
+
+		if ok && idx < r {
+			if idxDif := r - l; idxDif > maxLen {
+				maxLen = idxDif
+
+			}
+
+			if idx >= l {
+				l = idx + 1
+			}
+
+		}
+
+		m[s[r]] = r
+	}
+
+	if idxDif := r - l; idxDif > maxLen {
+		maxLen = idxDif
+	}
+
+	return maxLen
+}

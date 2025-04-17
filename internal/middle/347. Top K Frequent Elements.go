@@ -50,3 +50,38 @@ func topKFrequent(nums []int, k int) []int {
 
 	return nums
 }
+
+func topKFrequentNew(nums []int, k int) []int {
+	m := map[int]int{}
+
+	for i := range nums {
+		m[nums[i]]++
+	}
+
+	counts := map[int][]int{}
+
+	var maxCount = -1
+
+	for num, count := range m {
+		if count > maxCount {
+			maxCount = count
+		}
+
+		counts[count] = append(counts[count], num)
+	}
+
+	res := []int{}
+	for i := maxCount; i >= 1; i-- {
+		if k == 0 {
+			break
+		}
+
+		v, ok := counts[i]
+		if ok {
+			res = append(res, v...)
+			k -= len(v)
+		}
+	}
+
+	return res
+}
