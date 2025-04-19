@@ -1,5 +1,11 @@
 package middle
 
+import (
+	"container/list"
+	"fmt"
+	. "leetcode/pkg/datastructures/graphnode"
+)
+
 // https://leetcode.com/problems/number-of-islands/description/
 
 var (
@@ -103,4 +109,55 @@ func labyrinthDFS(grid [][]byte, rowIdx, colIdx int, overallStepsCntPtr *int) {
 			labyrinthDFS(grid, y, x, overallStepsCntPtr)
 		}
 	}
+}
+
+func numIslandsNew(grid [][]byte) int {
+	var islandsCount int
+
+	for i := range grid {
+		for j := range grid[0] {
+			if grid[i][j] != '1' {
+				continue
+			}
+
+			grid = traverseIslandBFS(grid, Coordinate{Row: i, Col: j})
+			islandsCount++
+		}
+	}
+
+	fmt.Println(grid)
+
+	return islandsCount
+}
+
+func traverseIslandBFS(grid [][]byte, c Coordinate) [][]byte {
+
+	q := list.New()
+	q.PushBack(c)
+
+	grid[c.Row][c.Col] = '0'
+
+	for q.Len() != 0 {
+		e := q.Front()
+		c := e.Value.(Coordinate)
+		q.Remove(e)
+
+		for _, s := range Steps {
+
+			newC := Coordinate{Row: c.Row + s.Row, Col: c.Col + s.Col}
+
+			if newC.Row < 0 || newC.Row >= len(grid) || newC.Col < 0 || newC.Col >= len(grid[0]) {
+				continue
+			}
+
+			if grid[newC.Row][newC.Col] != '1' {
+				continue
+			}
+
+			grid[newC.Row][newC.Col] = '0'
+			q.PushBack(newC)
+		}
+	}
+
+	return grid
 }
